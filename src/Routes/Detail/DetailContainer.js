@@ -1,6 +1,5 @@
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
-import DetailContainer from ".";
 
 export default class extends React.Component {
     state = {
