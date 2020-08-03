@@ -108,7 +108,11 @@ const DetailPresenter = ({ result, loading, error }) =>
     ) : (
         <Container>
             <Backdrop
-                bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+                bgImage={
+                    result.backdrop_path
+                        ? `https://image.tmdb.org/t/p/original${result.backdrop_path}`
+                        : require("../../assets/noPosterSmall.png")
+                }
             ></Backdrop>
             <Content>
                 <Cover
