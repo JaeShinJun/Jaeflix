@@ -143,9 +143,15 @@ const DetailPresenter = ({ result, loading, error }) =>
                                 )}
                         </Item>
                         <Divider>•</Divider>
-                        <Item>⭐{result.vote_average}</Item>
+                        <span role="img" aria-label="Rating">
+                            ⭐{result.vote_average}
+                        </span>
                     </ItemContainer>
-                    <Overview>{result.overview}</Overview>
+                    <Overview>
+                        {result.overview
+                            ? result.overview
+                            : "There is no overview for this Movie or Show."}
+                    </Overview>
                 </Data>
             </Content>
         </Container>
