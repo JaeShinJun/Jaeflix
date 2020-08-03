@@ -44,7 +44,7 @@ const Dot = styled.span`
 
 export default () => (
     <Container>
-        <DotLoader aria-label="Loading">
+        <DotLoader role="loader" aria-label="Loading">
             <Dot></Dot>
             <Dot></Dot>
             <Dot></Dot>
