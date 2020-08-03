@@ -142,6 +142,8 @@ const DetailPresenter = ({ result, loading, error }) =>
                                         : `${genre.name} / `
                                 )}
                         </Item>
+                        <Divider>•</Divider>
+                        <Item>⭐{result.vote_average}</Item>
                     </ItemContainer>
                     <Overview>{result.overview}</Overview>
                 </Data>
