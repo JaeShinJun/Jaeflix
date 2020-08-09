@@ -102,6 +102,22 @@ const Overview = styled.p`
     width: 70%;
 `;
 
+const IMDBLink = styled.span`
+    padding: 5px;
+    background-color: #eec017;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+`;
+
+const DisabledLink = styled.span`
+    padding: 5px;
+    background-color: gray;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+`;
+
 const DetailPresenter = ({ result, loading, error }) =>
     loading ? (
         <>
@@ -156,6 +172,21 @@ const DetailPresenter = ({ result, loading, error }) =>
                                         : `${genre.name} / `
                                 )}
                         </Item>
+                        <Divider>•</Divider>
+                        {result.imdb_id ? (
+                            <IMDBLink>
+                                <a
+                                    href={
+                                        result.imdb_id &&
+                                        `https://www.imdb.com/title/${result.imdb_id}/`
+                                    }
+                                >
+                                    IMDB
+                                </a>
+                            </IMDBLink>
+                        ) : (
+                            <DisabledLink>IMDB</DisabledLink>
+                        )}
                         <Divider>•</Divider>
                         <span role="img" aria-label="Rating">
                             ⭐{result.vote_average}
