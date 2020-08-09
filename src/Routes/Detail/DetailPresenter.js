@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
-
+import Helmet from "react-helmet";
 import Loader from "../../Components/Loader";
 
 const Container = styled.div`
@@ -104,9 +104,19 @@ const Overview = styled.p`
 
 const DetailPresenter = ({ result, loading, error }) =>
     loading ? (
-        <Loader />
+        <>
+            <Helmet>
+                <title>Loading | Jaeflix</title>
+            </Helmet>
+            <Loader />
+        </>
     ) : (
         <Container>
+            <Helmet>
+                <title>
+                    {result.title ? result.title : result.name} | Jaeflix
+                </title>
+            </Helmet>
             <Backdrop
                 bgImage={
                     result.backdrop_path
