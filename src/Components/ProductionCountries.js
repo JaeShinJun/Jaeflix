@@ -16,14 +16,14 @@ const FlagImg = styled.img`
     margin-right: auto;
 `;
 
-const ProductionCountries = ({ production_countries }) => (
+const ProductionCountries = ({ productionCountries }) => (
     <Container>
-        {production_countries && production_countries.length > 0 ? (
-            production_countries.map((production_country) => (
+        {productionCountries && productionCountries.length > 0 ? (
+            productionCountries.map((productionCountry) => (
                 <FlagImg
-                    key={production_country.iso_3166_1}
-                    alt={production_country.name}
-                    src={`https://www.countryflags.io/${production_country.iso_3166_1}/flat/64.png`}
+                    key={productionCountry.iso_3166_1}
+                    alt={productionCountry.name}
+                    src={`https://www.countryflags.io/${productionCountry.iso_3166_1}/flat/64.png`}
                 ></FlagImg>
             ))
         ) : (
@@ -33,7 +33,7 @@ const ProductionCountries = ({ production_countries }) => (
 );
 
 ProductionCountries.propTypes = {
-    production_countries: PropTypes.arrayOf(
+    productionCountries: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string,
             iso_3166_1: PropTypes.string,

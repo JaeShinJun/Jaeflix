@@ -285,7 +285,7 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                                             <Loader />
                                         ) : (
                                             <ProductionCompanies
-                                                production_companies={
+                                                productionCompanies={
                                                     result.production_companies
                                                 }
                                             />
@@ -299,7 +299,7 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                                             <Loader />
                                         ) : (
                                             <ProductionCountries
-                                                production_countries={
+                                                productionCountries={
                                                     result.production_countries
                                                 }
                                             />
@@ -338,7 +338,7 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                                             <Loader />
                                         ) : (
                                             <Seasons
-                                                seasons={
+                                                productionCompanies={
                                                     result.production_companies
                                                 }
                                             />

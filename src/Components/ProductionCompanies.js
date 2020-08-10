@@ -12,16 +12,16 @@ const LogoImg = styled.img`
     align-self: center;
 `;
 
-const ProductionCountries = ({ production_companies }) => (
+const ProductionCountries = ({ productionCompanies }) => (
     <Container>
-        {production_companies && production_companies.length > 0 ? (
-            production_companies.map((production_company) => (
+        {productionCompanies && productionCompanies.length > 0 ? (
+            productionCompanies.map((productionCompany) => (
                 <LogoImg
-                    key={production_company.id}
-                    alt={production_company.name}
+                    key={productionCompany.id}
+                    alt={productionCompany.name}
                     src={
-                        production_company.logo_path
-                            ? `https://image.tmdb.org/t/p/w200${production_company.logo_path}`
+                        productionCompany.logo_path
+                            ? `https://image.tmdb.org/t/p/w200${productionCompany.logo_path}`
                             : require("../assets/noPosterSmall.png")
                     }
                 ></LogoImg>
@@ -33,7 +33,7 @@ const ProductionCountries = ({ production_companies }) => (
 );
 
 ProductionCountries.propTypes = {
-    production_companies: PropTypes.arrayOf({
+    productionCompanies: PropTypes.arrayOf({
         id: PropTypes.string,
         name: PropTypes.string,
         logo_path: PropTypes.string,
