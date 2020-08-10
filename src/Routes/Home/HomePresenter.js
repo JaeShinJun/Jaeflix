@@ -54,7 +54,6 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) => (
                                 isMovie={true}
                             ></Poster>
                         ))}
-                        ;
                     </Section>
                 )}
                 {popular && popular.length > 0 && (
@@ -73,7 +72,6 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) => (
                                 isMovie={true}
                             ></Poster>
                         ))}
-                        ;
                     </Section>
                 )}
                 {error && <Message color="#e74c3c" text={error} />}
