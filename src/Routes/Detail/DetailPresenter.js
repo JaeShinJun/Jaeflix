@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import Loader from "../../Components/Loader";
 import { Link, HashRouter as Router, Route } from "react-router-dom";
 import ProductionCountries from "../../Components/ProductionCountries";
+import ProductionCompanies from "../../Components/ProductionCompanies";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -127,6 +128,7 @@ const Tabs = styled.nav`
     width: 50vw;
     display: grid;
     grid-template: 1fr / 1fr 1fr 1fr;
+    margin-bottom: 30px;
 `;
 
 const Btn = styled.div`
@@ -265,7 +267,15 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                             <Route
                                 path={`${url}/production_companies`}
                                 render={() =>
-                                    loading ? <Loader /> : <Loader />
+                                    loading ? (
+                                        <Loader />
+                                    ) : (
+                                        <ProductionCompanies
+                                            production_companies={
+                                                result.production_companies
+                                            }
+                                        />
+                                    )
                                 }
                             />
                             <Route
