@@ -7,6 +7,8 @@ import { Link, HashRouter as Router, Route } from "react-router-dom";
 import ProductionCountries from "../../Components/ProductionCountries";
 import ProductionCompanies from "../../Components/ProductionCompanies";
 import RelatedVideos from "../../Components/RelatedVideos";
+import Seasons from "../../Components/Seasons";
+import CreatedBy from "../../Components/CreatedBy";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -242,22 +244,22 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                             ) : (
                                 <>
                                     <Link
-                                        to={`/show/${result.id}/videos`}
+                                        to={`/show/${result.id}/seasons`}
                                         replace
                                     >
-                                        <Btn>Related Videos</Btn>
+                                        <Btn>Seasons</Btn>
+                                    </Link>
+                                    <Link
+                                        to={`/show/${result.id}/created_by`}
+                                        replace
+                                    >
+                                        <Btn>Created By</Btn>
                                     </Link>
                                     <Link
                                         to={`/show/${result.id}/production_companies`}
                                         replace
                                     >
                                         <Btn>Production Companies</Btn>
-                                    </Link>
-                                    <Link
-                                        to={`/show/${result.id}/production_countries`}
-                                        replace
-                                    >
-                                        <Btn>Production Countries</Btn>
                                     </Link>
                                 </>
                             )}
@@ -306,7 +308,44 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                                 />
                             </Router>
                         ) : (
-                            <Router></Router>
+                            <Router>
+                                <Route
+                                    path={`${url}/seasons`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <Seasons seasons={result.seasons} />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path={`${url}/created_by`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <CreatedBy
+                                                createdBy={result.created_by}
+                                            />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path={`${url}/production_companies`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <Seasons
+                                                seasons={
+                                                    result.production_companies
+                                                }
+                                            />
+                                        )
+                                    }
+                                />
+                            </Router>
                         )}
                     </MoreInfo>
                 </Data>
