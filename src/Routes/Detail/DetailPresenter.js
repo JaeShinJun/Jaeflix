@@ -219,87 +219,95 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                     <MoreInfo>
                         <Tabs>
                             {isMovie ? (
-                                <Link to={`/movie/${result.id}/videos`} replace>
-                                    <Btn>Related Videos</Btn>
-                                </Link>
+                                <>
+                                    <Link
+                                        to={`/movie/${result.id}/videos`}
+                                        replace
+                                    >
+                                        <Btn>Related Videos</Btn>
+                                    </Link>
+                                    <Link
+                                        to={`/movie/${result.id}/production_companies`}
+                                        replace
+                                    >
+                                        <Btn>Production Companies</Btn>
+                                    </Link>
+                                    <Link
+                                        to={`/movie/${result.id}/production_countries`}
+                                        replace
+                                    >
+                                        <Btn>Production Countries</Btn>
+                                    </Link>
+                                </>
                             ) : (
-                                <Link to={`/show/${result.id}/videos`} replace>
-                                    <Btn>Related Videos</Btn>
-                                </Link>
-                            )}
-                            {isMovie ? (
-                                <Link
-                                    to={`/movie/${result.id}/production_companies`}
-                                    replace
-                                >
-                                    <Btn>Production Companies</Btn>
-                                </Link>
-                            ) : (
-                                <Link
-                                    to={`/show/${result.id}/production_companies`}
-                                    replace
-                                >
-                                    <Btn>Production Companies</Btn>
-                                </Link>
-                            )}
-                            {isMovie ? (
-                                <Link
-                                    to={`/movie/${result.id}/production_countries`}
-                                    replace
-                                >
-                                    <Btn>Production Countries</Btn>
-                                </Link>
-                            ) : (
-                                <Link
-                                    to={`/show/${result.id}/production_countries`}
-                                    replace
-                                >
-                                    <Btn>Production Countries</Btn>
-                                </Link>
+                                <>
+                                    <Link
+                                        to={`/show/${result.id}/videos`}
+                                        replace
+                                    >
+                                        <Btn>Related Videos</Btn>
+                                    </Link>
+                                    <Link
+                                        to={`/show/${result.id}/production_companies`}
+                                        replace
+                                    >
+                                        <Btn>Production Companies</Btn>
+                                    </Link>
+                                    <Link
+                                        to={`/show/${result.id}/production_countries`}
+                                        replace
+                                    >
+                                        <Btn>Production Countries</Btn>
+                                    </Link>
+                                </>
                             )}
                         </Tabs>
-                        <Router>
-                            <Route
-                                path={`${url}/videos`}
-                                render={() =>
-                                    loading ? (
-                                        <Loader />
-                                    ) : (
-                                        <RelatedVideos
-                                            videos={result.videos.results}
-                                        />
-                                    )
-                                }
-                            />
-                            <Route
-                                path={`${url}/production_companies`}
-                                render={() =>
-                                    loading ? (
-                                        <Loader />
-                                    ) : (
-                                        <ProductionCompanies
-                                            production_companies={
-                                                result.production_companies
-                                            }
-                                        />
-                                    )
-                                }
-                            />
-                            <Route
-                                path={`${url}/production_countries`}
-                                render={() =>
-                                    loading ? (
-                                        <Loader />
-                                    ) : (
-                                        <ProductionCountries
-                                            production_countries={
-                                                result.production_countries
-                                            }
-                                        />
-                                    )
-                                }
-                            />
-                        </Router>
+                        {isMovie ? (
+                            <Router>
+                                <Route
+                                    path={`${url}/videos`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <RelatedVideos
+                                                videos={result.videos.results}
+                                            />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path={`${url}/production_companies`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <ProductionCompanies
+                                                production_companies={
+                                                    result.production_companies
+                                                }
+                                            />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path={`${url}/production_countries`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <ProductionCountries
+                                                production_countries={
+                                                    result.production_countries
+                                                }
+                                            />
+                                        )
+                                    }
+                                />
+                            </Router>
+                        ) : (
+                            <Router></Router>
+                        )}
                     </MoreInfo>
                 </Data>
             </Content>
