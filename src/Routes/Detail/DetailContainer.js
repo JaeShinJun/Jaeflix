@@ -1,6 +1,8 @@
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
 import { moviesApi, tvApi } from "../../api";
+import { Route, HashRouter as Router } from "react-router-dom";
+import Loader from "../../Components/Loader";
 
 export default class extends React.Component {
     constructor(props) {
@@ -13,6 +15,7 @@ export default class extends React.Component {
             error: null,
             loading: true,
             isMovie: pathname.includes("/movie/"),
+            url: this.props.match.url,
         };
     }
 
@@ -47,10 +50,16 @@ export default class extends React.Component {
     }
 
     render() {
+        const { result, error, loading, isMovie, url } = this.state;
         console.log(this.state);
-        const { result, error, loading } = this.state;
         return (
-            <DetailPresenter result={result} error={error} loading={loading} />
+            <DetailPresenter
+                result={result}
+                error={error}
+                loading={loading}
+                isMovie={isMovie}
+                url={url}
+            />
         );
     }
 }

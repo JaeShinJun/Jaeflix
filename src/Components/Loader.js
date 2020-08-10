@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     font-size: 28px;
@@ -11,8 +11,8 @@ const Container = styled.div`
 `;
 
 const DotLoader = styled.div`
-    height: 30vw;
-    width: 30vw;
+    height: 25vw;
+    width: 25vw;
     display: flex;
     justify-content: center;
     align-items: center;
