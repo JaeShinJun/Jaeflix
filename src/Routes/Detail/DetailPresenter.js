@@ -6,6 +6,7 @@ import Loader from "../../Components/Loader";
 import { Link, HashRouter as Router, Route } from "react-router-dom";
 import ProductionCountries from "../../Components/ProductionCountries";
 import ProductionCompanies from "../../Components/ProductionCompanies";
+import RelatedVideos from "../../Components/RelatedVideos";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -261,7 +262,13 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                             <Route
                                 path={`${url}/videos`}
                                 render={() =>
-                                    loading ? <Loader /> : <Loader />
+                                    loading ? (
+                                        <Loader />
+                                    ) : (
+                                        <RelatedVideos
+                                            videos={result.videos.results}
+                                        />
+                                    )
                                 }
                             />
                             <Route

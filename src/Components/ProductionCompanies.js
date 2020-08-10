@@ -25,7 +25,7 @@ const ProductionCountries = ({ production_companies }) => (
 
 ProductionCountries.propTypes = {
     production_companies: PropTypes.arrayOf({
-        id: PropTypes.number,
+        id: PropTypes.string,
         name: PropTypes.string,
         logo_path: PropTypes.string,
         origin_country: PropTypes.string,
