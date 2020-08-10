@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import Message from "./Message";
 
 const Container = styled.div`
     display: grid;
@@ -16,22 +17,26 @@ const YoutubePlayer = styled.iframe`
     frameborder: 0;
 `;
 
-const RelatedVideos = ({ videos }) => (
-    <Container>
-        {videos.map(
-            (video) =>
-                video.site.toLowerCase() === "youtube" && (
-                    <YoutubePlayer
-                        key={video.id}
-                        title={video.name}
-                        src={`//www.youtube.com/embed/${video.key}`}
-                        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></YoutubePlayer>
-                )
-        )}
-    </Container>
-);
+const RelatedVideos = ({ videos }) => {
+    return videos && videos.length > 0 ? (
+        <Container>
+            {videos.map(
+                (video) =>
+                    video.site.toLowerCase() === "youtube" && (
+                        <YoutubePlayer
+                            key={video.id}
+                            title={video.name}
+                            src={`//www.youtube.com/embed/${video.key}`}
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></YoutubePlayer>
+                    )
+            )}
+        </Container>
+    ) : (
+        <Message color="red" text={"Related video not found"} />
+    );
+};
 
 RelatedVideos.propTypes = {
     videos: PropTypes.arrayOf({

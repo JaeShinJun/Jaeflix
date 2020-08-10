@@ -26,10 +26,10 @@ const CreatorName = styled.span`
     font-size: 14px;
 `;
 
-const CreatedBy = ({ createdBy }) => (
-    <Container>
-        {createdBy && createdBy.length > 0 ? (
-            createdBy.map((creator) => (
+const CreatedBy = ({ createdBy }) => {
+    return createdBy && createdBy.length > 0 ? (
+        <Container>
+            {createdBy.map((creator) => (
                 <CreatorContainer key={creator.id}>
                     <CreatorImg
                         alt={creator.name}
@@ -41,11 +41,11 @@ const CreatedBy = ({ createdBy }) => (
                     />
                     <CreatorName>{creator.name}</CreatorName>
                 </CreatorContainer>
-            ))
-        ) : (
-            <Message color="red" text={"Creator not found"} />
-        )}
-    </Container>
-);
+            ))}
+        </Container>
+    ) : (
+        <Message color="red" text={"Creator not found"} />
+    );
+};
 
 export default CreatedBy;

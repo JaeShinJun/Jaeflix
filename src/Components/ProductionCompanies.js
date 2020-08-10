@@ -12,10 +12,10 @@ const LogoImg = styled.img`
     align-self: center;
 `;
 
-const ProductionCountries = ({ productionCompanies }) => (
-    <Container>
-        {productionCompanies && productionCompanies.length > 0 ? (
-            productionCompanies.map((productionCompany) => (
+const ProductionCountries = ({ productionCompanies }) => {
+    return productionCompanies && productionCompanies.length > 0 ? (
+        <Container>
+            {productionCompanies.map((productionCompany) => (
                 <LogoImg
                     key={productionCompany.id}
                     alt={productionCompany.name}
@@ -25,20 +25,22 @@ const ProductionCountries = ({ productionCompanies }) => (
                             : require("../assets/noPosterSmall.png")
                     }
                 ></LogoImg>
-            ))
-        ) : (
-            <Message color="red" text={"Production company not found"} />
-        )}
-    </Container>
-);
+            ))}
+        </Container>
+    ) : (
+        <Message color="red" text={"Production company not found"} />
+    );
+};
 
 ProductionCountries.propTypes = {
-    productionCompanies: PropTypes.arrayOf({
-        id: PropTypes.string,
-        name: PropTypes.string,
-        logo_path: PropTypes.string,
-        origin_country: PropTypes.string,
-    }).isRequired,
+    productionCompanies: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number,
+            name: PropTypes.string,
+            logo_path: PropTypes.string,
+            origin_country: PropTypes.string,
+        })
+    ).isRequired,
 };
 
 export default ProductionCountries;

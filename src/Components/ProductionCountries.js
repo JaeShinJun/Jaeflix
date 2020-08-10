@@ -16,21 +16,21 @@ const FlagImg = styled.img`
     margin-right: auto;
 `;
 
-const ProductionCountries = ({ productionCountries }) => (
-    <Container>
-        {productionCountries && productionCountries.length > 0 ? (
-            productionCountries.map((productionCountry) => (
+const ProductionCountries = ({ productionCountries }) => {
+    return productionCountries && productionCountries.length > 0 ? (
+        <Container>
+            {productionCountries.map((productionCountry) => (
                 <FlagImg
                     key={productionCountry.iso_3166_1}
                     alt={productionCountry.name}
                     src={`https://www.countryflags.io/${productionCountry.iso_3166_1}/flat/64.png`}
                 ></FlagImg>
-            ))
-        ) : (
-            <Message color="red" text={"Production country not found"} />
-        )}
-    </Container>
-);
+            ))}
+        </Container>
+    ) : (
+        <Message color="red" text={"Production country not found"} />
+    );
+};
 
 ProductionCountries.propTypes = {
     productionCountries: PropTypes.arrayOf(

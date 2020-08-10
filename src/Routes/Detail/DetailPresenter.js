@@ -337,7 +337,7 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                                         loading ? (
                                             <Loader />
                                         ) : (
-                                            <Seasons
+                                            <ProductionCompanies
                                                 productionCompanies={
                                                     result.production_companies
                                                 }
