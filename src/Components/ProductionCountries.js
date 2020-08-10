@@ -15,6 +15,11 @@ const ProductionCountries = ({ production_countries }) => (
     </Container>
 );
 
-ProductionCountries.propTypes = {};
+ProductionCountries.propTypes = {
+    production_countries: PropTypes.arrayOf({
+        name: PropTypes.string,
+        iso_3166_1: PropTypes.string,
+    }).isRequired,
+};
 
 export default ProductionCountries;

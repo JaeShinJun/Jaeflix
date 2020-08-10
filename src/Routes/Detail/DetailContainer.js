@@ -1,8 +1,6 @@
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
 import { moviesApi, tvApi } from "../../api";
-import { Route, HashRouter as Router } from "react-router-dom";
-import Loader from "../../Components/Loader";
 
 export default class extends React.Component {
     constructor(props) {
