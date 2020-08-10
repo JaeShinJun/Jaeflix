@@ -9,6 +9,7 @@ import ProductionCompanies from "../../Components/ProductionCompanies";
 import RelatedVideos from "../../Components/RelatedVideos";
 import Seasons from "../../Components/Seasons";
 import CreatedBy from "../../Components/CreatedBy";
+import Collection from "../Collection";
 
 const Container = styled.div`
     height: calc(100vh - 50px);
@@ -222,42 +223,35 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                         <Tabs>
                             {isMovie ? (
                                 <>
-                                    <Link
-                                        to={`/movie/${result.id}/videos`}
-                                        replace
-                                    >
+                                    <Link to={`/movie/${result.id}/videos`}>
                                         <Btn>Related Videos</Btn>
                                     </Link>
                                     <Link
                                         to={`/movie/${result.id}/production_companies`}
-                                        replace
                                     >
                                         <Btn>Production Companies</Btn>
                                     </Link>
                                     <Link
                                         to={`/movie/${result.id}/production_countries`}
-                                        replace
                                     >
                                         <Btn>Production Countries</Btn>
+                                    </Link>
+                                    <Link
+                                        to={`/movie/${result.id}/collections`}
+                                    >
+                                        <Btn>Collections</Btn>
                                     </Link>
                                 </>
                             ) : (
                                 <>
-                                    <Link
-                                        to={`/show/${result.id}/seasons`}
-                                        replace
-                                    >
+                                    <Link to={`/show/${result.id}/seasons`}>
                                         <Btn>Seasons</Btn>
                                     </Link>
-                                    <Link
-                                        to={`/show/${result.id}/created_by`}
-                                        replace
-                                    >
+                                    <Link to={`/show/${result.id}/created_by`}>
                                         <Btn>Created By</Btn>
                                     </Link>
                                     <Link
                                         to={`/show/${result.id}/production_companies`}
-                                        replace
                                     >
                                         <Btn>Production Companies</Btn>
                                     </Link>
@@ -301,6 +295,20 @@ const DetailPresenter = ({ result, loading, error, isMovie, url }) =>
                                             <ProductionCountries
                                                 productionCountries={
                                                     result.production_countries
+                                                }
+                                            />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path={`${url}/collections`}
+                                    render={() =>
+                                        loading ? (
+                                            <Loader />
+                                        ) : (
+                                            <Collection
+                                                collection={
+                                                    result.belongs_to_collection
                                                 }
                                             />
                                         )

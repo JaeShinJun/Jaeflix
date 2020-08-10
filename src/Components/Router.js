@@ -19,7 +19,12 @@ export default () => (
                 <Route path="/" exact component={Home} />
                 <Route path="/tv" component={TV} />
                 <Route path="/search" component={Search} />
-                <Route path="/movie/:id" component={Detail} />
+                <Route
+                    path="/movie/:id"
+                    render={(props) => (
+                        <Detail key={props.match.params.id} {...props} />
+                    )}
+                />
                 <Route path="/show/:id" component={Detail} />
                 <Redirect from="*" to="/" />
             </Switch>
