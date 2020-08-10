@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import Message from "./Message";
 
 const Container = styled.div`
     display: grid;
@@ -13,13 +14,21 @@ const LogoImg = styled.img`
 
 const ProductionCountries = ({ production_companies }) => (
     <Container>
-        {production_companies.map((production_company) => (
-            <LogoImg
-                key={production_company.id}
-                alt={production_company.name}
-                src={`https://image.tmdb.org/t/p/w200${production_company.logo_path}`}
-            ></LogoImg>
-        ))}
+        {production_companies && production_companies.length > 0 ? (
+            production_companies.map((production_company) => (
+                <LogoImg
+                    key={production_company.id}
+                    alt={production_company.name}
+                    src={
+                        production_company.logo_path
+                            ? `https://image.tmdb.org/t/p/w200${production_company.logo_path}`
+                            : require("../assets/noPosterSmall.png")
+                    }
+                ></LogoImg>
+            ))
+        ) : (
+            <Message color="red" text={"Production company not found"} />
+        )}
     </Container>
 );
 
