@@ -1,5 +1,8 @@
 FROM node:12
 
+ARG NODE_PATH
+ENV NODE_PATH=$NODE_PATH
+
 COPY package.json .
 RUN npm install
 
