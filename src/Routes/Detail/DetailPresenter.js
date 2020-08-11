@@ -148,10 +148,14 @@ const Btn = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 5px;
+    padding: 5px 0;
     border-bottom: 2px solid
         ${(props) => (props.current ? "#3498db" : "transparent")};
     color: ${(props) => (props.current ? "#3498db" : "white")};
+    &:hover {
+        background-color: rgba(20, 20, 20, 0.2);
+    }
+    transition: background-color 0.5s ease-in-out;
 `;
 
 const StyledLink = styled(Link)``;
