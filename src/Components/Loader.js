@@ -37,7 +37,7 @@ const Dot = styled.span`
     width: 10px;
     height: 10px;
     margin: 10px 10px;
-    background-color: #48d1cc;
+    background-color: #ecf0f1;
     border-radius: 50%;
     display: inline-block;
 `;
