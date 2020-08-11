@@ -1,11 +1,16 @@
 FROM node:12
 
+COPY package.json .
+RUN npm install
+
 COPY . .
 
-RUN npm install
 RUN echo 'NODE_PATH=src' > .env
 
-ENTRYPOINT ["npm"]
-CMD ["start"]
+RUN npm run build
 
-EXPOSE 3000
+RUN npm install -g serve
+ENTRYPOINT ["serve"]
+CMD ["-s", "build"]
+
+EXPOSE 5000
