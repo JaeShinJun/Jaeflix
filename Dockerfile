@@ -5,8 +5,6 @@ RUN npm install
 
 COPY . .
 
-RUN echo 'NODE_PATH=src' > .env
-
 RUN npm run build
 
 RUN npm install -g serve
