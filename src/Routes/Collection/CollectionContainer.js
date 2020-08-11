@@ -20,6 +20,18 @@ export default class extends React.Component {
             const {
                 data: { id, name, parts },
             } = await moviesApi.collection(collectionId);
+            parts.sort((a, b) => {
+                console.log(a, a.release_date);
+                if (!a.release_date) {
+                    return 1;
+                }
+                if (!b.release_date) {
+                    return 1;
+                }
+                const A = parseInt(a.release_date.substring(0, 4));
+                const B = parseInt(b.release_date.substring(0, 4));
+                return A > B ? 1 : A === B ? 0 : -1;
+            });
 
             const movies = parts.map((part) => {
                 const {
@@ -63,25 +75,3 @@ export default class extends React.Component {
         );
     }
 }
-
-// data:
-//      backdrop_path: "/bccR2CGTWVVSZAG0yqmy3DIvhTX.jpg"
-//      id: 119
-//      name: "반지의 제왕 시리즈"
-//      overview: ""
-//      parts: Array(3)
-//          0:
-//          adult: false
-//          backdrop_path: "/vRQnzOn4HjIMX4LBq9nHhFXbsSu.jpg"
-//          genre_ids: (3) [28, 12, 14]
-//          id: 120
-//          original_language: "en"
-//          original_title: "The Lord of the Rings: The Fellowship of the Ring"
-//          overview: "호빗이라 불리우는 난장이 종족 중의 한 명인 프로도는 자신의 삼촌에게서 우연히 절대 반지를 물려받게 되고, 마법사 간달프를 통해서 절대반지가 사우론의 손에 들어가면 악의 세력이 세상을 지배하게 된다는 것을 알게 된다. 하지만 절대반지를 영원히 파괴할 수 있는 유일한 방법은 반지가 만들어진 불의 산의 용암에 그것을 던져 넣는 길 뿐이다. 마침내 프로도와 그의 친구들, 엘프족인 레골라스, 난장이족 김리, 두명의 인간 전사 아라곤과 보로미르, 그리고 마법사 간달프로 구성된 반지 원정대가 길고도 험난한 여정을 떠나게 되는데..."
-//          popularity: 45.472
-//          poster_path: "/7uCvKNKKLRqYYyHIRpphi3yUE6Z.jpg"
-//          release_date: "2001-12-18"
-//          title: "반지의 제왕: 반지 원정대"
-//          video: false
-//          vote_average: 8.3
-//          vote_count: 17527

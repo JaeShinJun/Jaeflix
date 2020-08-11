@@ -39,12 +39,14 @@ const RelatedVideos = ({ videos }) => {
 };
 
 RelatedVideos.propTypes = {
-    videos: PropTypes.arrayOf({
-        id: PropTypes.string,
-        key: PropTypes.string,
-        name: PropTypes.string,
-        site: PropTypes.string,
-    }),
+    videos: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string,
+            key: PropTypes.string,
+            name: PropTypes.string,
+            site: PropTypes.string,
+        })
+    ),
 };
 
 export default RelatedVideos;

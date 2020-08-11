@@ -7,9 +7,9 @@ import Poster from "../../Components/Poster";
 
 const Container = styled.div``;
 
-const CollectionPoster = styled.img``;
-
-const CollectionName = styled.span``;
+const CollectionPoster = styled.img`
+    margin-bottom: 10px;
+`;
 
 const CollectionPresenter = ({
     collection,
@@ -28,8 +28,7 @@ const CollectionPresenter = ({
                         : require("../../assets/noPosterSmall.png")
                 }
             />
-            <CollectionName>{name}</CollectionName>
-            <Section title="Collections">
+            <Section title={collection.name}>
                 {movies.map((movie) => (
                     <Poster
                         key={movie.id}
