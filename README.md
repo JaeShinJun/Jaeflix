@@ -2,6 +2,8 @@
 
 Learning React and ES6 by building a Movie Discovery App.
 
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/JaeShinJun/Jaeflix)
+
 ## Screens
 
 -   [x] HOME
