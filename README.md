@@ -30,4 +30,5 @@ Learning React and ES6 by building a Movie Discovery App.
 
 # Preview
 
-Try it on [netlify](https://loving-davinci-f6ba35.netlify.app/), [ainize](https://master-jaeflix-jae-shin-jun.endpoint.staging.ainize.ai)
+Try it on [netlify](https://loving-davinci-f6ba35.netlify.app/), [![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/JaeShinJun/Jaeflix)
+
